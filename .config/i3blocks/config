@@ -16,5 +16,5 @@ full_text= :  0%
 command=~/.config/i3blocks/scripts/sound_info.sh
 interval=3
 [TIME_DATE]
-command=date +"%a, %b %d %I:%M %p"
+command=~/.config/i3blocks/scripts/newtime
 interval=60
