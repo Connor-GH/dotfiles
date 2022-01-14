@@ -1,20 +1,20 @@
 #!/bin/sh
 [DISK]
-command=df -h / | awk '/nvme0n1p2/ {print "💾: " $3 "/" $2}'
+command=~/.config/i3blocks/scripts/newdisk
 interval=300
 color=#C9E3DB
 [CPU]
-command=echo "CPU: `cat <(grep 'cpu ' /proc/stat) <(sleep 1 && grep 'cpu ' /proc/stat) | awk -v RS="" '{printf "%.2f%\n", ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)}'` @ `sensors | awk '/^Tccd1/ {print $2}'`"
+command=~/.config/i3blocks/scripts/newcpuavg
 interval=2
 color=#00B4EB
 [MEM]
-command=free -h --si | awk '/Mem:/ {print $3 "/" $2}'
+command=~/.config/i3blocks/scripts/newmem
 interval=3
 color=#FEC925
 [SOUND]
 full_text= :  0% 
-command=~/.config/i3blocks/sound/sound_info.sh
+command=~/.config/i3blocks/scripts/sound_info.sh
 interval=3
 [TIME_DATE]
-command=date +" %a, %b %d %I:%M %p"
+command=date +"%a, %b %d %I:%M %p"
 interval=60
