@@ -9,4 +9,7 @@ alias upgrade="sudo pacman -Syu"
 alias yt="youtube-dl --add-metadata -ic" #download vid
 alias yta="youtube-dl --output '~/Music/%(title)s.%(ext)s' --add-metadata -xic" #download audio
 alias music="alacritty --hold -e mocp --theme nightly_theme & cava"
+alias gccf="gcc -march=x86-64 -Wall -Wpedantic"
+alias mntnas="sudo mount -t nfs $IP_OF_NAS:$POOL_LOCATION /mnt/NAS"
+alias umntnas="sudo umount /mnt/NAS"
 fetchme
