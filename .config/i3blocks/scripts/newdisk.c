@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <sys/statvfs.h>
-#include <stdint.h> 
 int main() { 
 	char *filename = "/";
  
@@ -11,7 +10,7 @@ int main() {
 	    blksize = buf.f_bsize;
 	    blocks = buf.f_blocks;
 	    freeblks = buf.f_bfree;
-	    int64_t unit;
+	    int unit;
 	    disk_size = blocks * blksize;
 	    free = freeblks * blksize;
 	    used = disk_size - free;

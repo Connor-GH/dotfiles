@@ -83,6 +83,6 @@ int main() {
 	}
 	else {
 		MorG = 'G';
-	printf("%.2f%c/%dG\n", USED_RAM, MorG, TOTAL_RAM);
+	printf("%.1f%c/%dG\n", USED_RAM, MorG, TOTAL_RAM);
 	}
 }
