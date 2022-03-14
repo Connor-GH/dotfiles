@@ -15,7 +15,7 @@ hide_edge_borders smart
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Hack Bold 14
-
+exec --no-startup-id feh --no-fehbg --bg-scale '/home/landon/Pictures/mountain_landscape_nature_3840x2160.png'
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -44,7 +44,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ~/bin/alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
