@@ -11,6 +11,4 @@ alias yt="youtube-dl --add-metadata -ic" #download vid
 alias yta="youtube-dl --output '~/Music/%(title)s.%(ext)s' --add-metadata -xic" #download audio
 alias music="alacritty -e mocp & cava"
 alias gccf="gcc -march=x86-64 -Wall -Wpedantic"
-alias mntnas="sudo mount -t nfs 192.168.0.253:/mnt/FirstPool/landon /mnt/NAS"
-alias umntnas="sudo umount /mnt/NAS"
 fetchme #notes: ssh is disallowed in ufw, and ufw is on at boot.
