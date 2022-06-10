@@ -1,5 +1,0 @@
-export GDK_SCALE=1
-export GDK_DPI_SCALE=1
-export QT_AUTO_SCREEN_SET_FACTOR=0
-export QT_SCALE_FACTOR=1
-export QT_FONT_DPI=96
