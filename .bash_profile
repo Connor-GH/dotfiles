@@ -1,4 +1,4 @@
 #
 # ~/.bash_profile
-export LESSHISTFILE=-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+./scripts/C/startup
+[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
