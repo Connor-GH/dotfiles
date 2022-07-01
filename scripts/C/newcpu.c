@@ -38,8 +38,11 @@ int main() {
 	int64_t z3;
 	sscanf(i16v, "%ld", &z3);
 
-
+	float TEMP;
 	FILE *cpu3 = fopen("/sys/class/hwmon/hwmon1/temp3_input", "r");
+	if (*cpu3 == NULL)
+		TEMP = 0.;
+	else {
 	char line1_value[100];
 	char line1temp[100];
 	fgets(line1temp, sizeof(line1temp), cpu3);
@@ -47,7 +50,8 @@ int main() {
 	fclose(cpu3);
 	int x2;
 	sscanf(line1_value, "%d", &x2);
-	float TEMP = (x2/1000.);
+	TEMP = (x2/1000.);
+	}
 
 	printf("%.2f% @ %.1f°C\n", (z1-x+z2-y)*100./(z1-x+z2-y+z3-z), TEMP);
 }
