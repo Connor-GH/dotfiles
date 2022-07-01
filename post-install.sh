@@ -40,6 +40,8 @@ mkdir $HOME/.config
 
 printf "Moving config files... "
 mv  .config/*       $HOME
+mkdir $HOME/scripts
+mv scripts/* $HOME/scripts
 
 printf "$GREEN Done $NONE\n"
 
