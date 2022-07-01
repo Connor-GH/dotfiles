@@ -45,11 +45,13 @@ mv scripts/* $HOME/scripts
 
 printf "$GREEN Done $NONE\n"
 
+make_statusbar_startup() {
 printf "Compiling statusbar and startup script (this will produce a lot of output)...\n"
 cd scripts/C
 make statusbar startup-script
 cd -
 printf "$GREEN Done $NONE\n"
+}
 
 
 printf "Moving Bash-related files... "
@@ -125,6 +127,8 @@ su -c "echo '*/*::steam-overlay' >> /etc/portage/package.accept_keywords" root
 $root_helper emerge --ask games-util/steam-launcher # (or steam-meta if that fails)
 }
 
+# uncomment this line only if you are using my dotfiles.
+##### make_statusbar_startup()
 
 # either uncomment out "arch()" or "gentoo()" depending on the system this 
 # is being installed on, of course.
