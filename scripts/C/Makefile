@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-O2 -pipe -Wall -Wpedantic
-STATUSDIR="$(HOME)/scripts/C"
+STATUSDIR="."
 STARTUPLIBS="-lncurses"
 statusbar:
 	$(CC) $(CFLAGS) -o $(STATUSDIR)/newcpu $(STATUSDIR)/newcpu.c
