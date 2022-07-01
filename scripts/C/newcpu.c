@@ -40,7 +40,7 @@ int main() {
 
 	float TEMP;
 	FILE *cpu3 = fopen("/sys/class/hwmon/hwmon1/temp3_input", "r");
-	if (*cpu3 == NULL)
+	if (cpu3 == NULL)
 		TEMP = 0.;
 	else {
 	char line1_value[100];
