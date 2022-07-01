@@ -99,20 +99,23 @@ $root_helper emerge --newuse --ask alacritty $cpubrand-ucode net-misc/curl \
 # https://github.com/FreeTubeApp/FreeTube
 
 # gentoo uses an overlay for openrazer:
-# openrazer() {
-# eselect repository enable vifino-overlay
-# emaint sync -r vifino-overlay
-# emerge --ask app-misc/openrazer
-# }
+openrazer() {
+$root_helper eselect repository enable vifino-overlay
+$root_helper emaint sync -r vifino-overlay
+$root_helper emerge --ask app-misc/openrazer
+}
 
 
 # gentoo uses an overlay for steam:
-# steam() {
-# eselect repository enable steam-overlay
-# emaint sync -r steam-overlay
-# echo "*/*::steam-overlay" >> /etc/portage/package.accept_keywords # (file)
-# emerge --ask games-util/steam-launcher # (or steam-meta if that fails)
-# }
+steam() {
+$root_helper eselect repository enable steam-overlay
+$root_helper emaint sync -r steam-overlay
+
+# using su like this is probably advised against
+# but the only alternative is logging a pty in as root
+su -c "echo '*/*::steam-overlay' >> /etc/portage/package.accept_keywords" root
+$root_helper emerge --ask games-util/steam-launcher # (or steam-meta if that fails)
+}
 
 
 # either uncomment out "arch()" or "gentoo()" depending on the system this 
