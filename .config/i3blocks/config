@@ -1,20 +1,20 @@
 #!/bin/sh
 [DISK]
-command=~/.config/i3blocks/scripts/newdisk
+command=~/scripts/C/newdisk
 interval=300
 color=#C9E3DB
 [CPU]
-command=~/.config/i3blocks/scripts/newcpuavg
+command=~/scripts/C/newcpuavg
 interval=2
 color=#00B4EB
 [MEM]
-command=~/.config/i3blocks/scripts/newmem
+command=~/scripts/C/newmem
 interval=3
 color=#FEC925
 [SOUND]
 full_text= :  0% 
-command=~/.config/i3blocks/scripts/sound_info.sh
+command=~/scripts/bash/sound_info.sh
 interval=3
 [TIME_DATE]
-command=~/.config/i3blocks/scripts/newtime
+command=~/scripts/C/newtime
 interval=60
