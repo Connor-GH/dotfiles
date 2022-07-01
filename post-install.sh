@@ -45,6 +45,12 @@ mv scripts/* $HOME/scripts
 
 printf "$GREEN Done $NONE\n"
 
+printf "Compiling statusbar and startup script (this will produce a lot of output)...\n"
+cd scripts/C
+make statusbar startup-script
+cd -
+printf "$GREEN Done $NONE\n"
+
 
 printf "Moving Bash-related files... "
 mv  .bash_profile   $HOME
