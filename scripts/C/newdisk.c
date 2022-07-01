@@ -21,7 +21,7 @@ int main() {
 		unit = 'M'; }
 	    else {
 		unit = 'T'; }
-	   	printf("💾: %lu%c/%lu%c\n", (used/1024/1024/1024), unit, ((used/1024/1024/1024)+free/1024/1024/1024), unit);
+	   	printf("💾: %ld%c/%ld%c\n", (used/1024/1024/1024), unit, ((used/1024/1024/1024)+free/1024/1024/1024), unit);
 		} 
 	    	else {
 	   	 printf("Couldn't get file system statistics\n");

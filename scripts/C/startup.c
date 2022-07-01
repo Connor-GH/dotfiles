@@ -5,11 +5,7 @@ int main() {
     struct winsize w;
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
-/*
-    the excessive refreshing and delays are to simulate
-    the effect of an older computer's boot screen
-*/
- 
+
     (void) initscr();
     erase();
     for (int i=0;i<w.ws_col;i++) {
@@ -71,6 +67,7 @@ addstr("////////  //  //    //    //////  //    //");
 usleep(12000);
 refresh();
 
+    //refresh();
     sleep(1);
     endwin();
 
