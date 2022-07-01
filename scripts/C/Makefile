@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-O2 -pipe -Wall -Wpedantic
-STATUSDIR="$(HOME)/.config/i3blocks/scripts"
+STATUSDIR="$(HOME)/scripts/C/"
 STARTUPLIBS="-lncurses"
 statusbar:
 	$(CC) $(CFLAGS) -o $(STATUSDIR)/newcpu $(STATUSDIR)/newcpu.c
