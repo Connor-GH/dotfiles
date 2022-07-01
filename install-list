@@ -6,16 +6,19 @@
 
 mkdir -p $HOME/dotfiles/
 
-cp $HOME/.bashrc 	$HOME/dotfiles
-cp $HOME/.bash_profile	$HOME/dotfiles
-cp $HOME/.xinitrc 	$HOME/dotfiles
-cp $HOME/.Xresources	$HOME/dotfiles
-
+cp $HOME/.bashrc                $HOME/dotfiles
+cp $HOME/.bash_profile          $HOME/dotfiles
+cp $HOME/.xinitrc               $HOME/dotfiles
+cp $HOME/.Xresources            $HOME/dotfiles
 # Download Minecraft directory from NAS
 # Same with music.
 
+cp -r $HOME/.config/bspwm       $HOME/dotfiles/
+cp -r $HOME/.config/nvim        $HOME/dotfiles/
+cp -r $HOME/.config/sxhkd       $HOME/dotfiles/
+cp -r $HOME/.config/polybar     $HOME/dotfiles/
 cp -r $HOME/.config/alacritty	$HOME/dotfiles/
-cp -r $HOME/.config/i3  	$HOME/dotfiles/
+cp -r $HOME/.config/cava        $HOME/dotfiles/
+cp -r $HOME/.config/i3          $HOME/dotfiles/
 cp -r $HOME/.config/i3blocks	$HOME/dotfiles/
-cp -r $HOME/.config/picom	$HOME/dotfiles/
-cp -r $HOME/.config/screengrab	$HOME/dotfiles/
+cp -r $HOME/.config/picom       $HOME/dotfiles/
