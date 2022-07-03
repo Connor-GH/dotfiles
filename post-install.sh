@@ -25,11 +25,11 @@ GREEN='\033[1;32m'
 NONE='\033[0m'
 
 
-echo "Cloning Dotfiles directory..."
+echo -e "Cloning Dotfiles directory..."
 git clone $DOTFILES
 
 # git cloned directories normally start with the user's repo name, so we go into that
-printf "Entering Dotfiles Directory... "
+echo -en "Entering Dotfiles Directory... "
 cd $(echo $DOTFILES | tr "/" "\n" | tail -1)
 echo -en "$GREEN Done $NONE\n"
 
