@@ -1,9 +1,9 @@
 #!/bin/sh
 
-MONITOR_NAME="Virtual-1"
-xrandr -s 1920x1080
+MONITOR_NAME="HDMI-0"
+xrandr -s 3840x2160
 pgrep -x sxhkd > /dev/null || sxhkd &
-picom -f &
+picom -f &#--experimental-backends 
 feh --no-fehbg --bg-scale ~/Downloads/gentoo-wallpaper.png &
 polybar mainbar &
 
