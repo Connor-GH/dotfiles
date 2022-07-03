@@ -31,41 +31,43 @@ git clone $DOTFILES
 # git cloned directories normally start with the user's repo name, so we go into that
 printf "Entering Dotfiles Directory... "
 cd $(echo $DOTFILES | tr "/" "\n" | tail -1)
-printf "$GREEN Done $NONE\n"
+echo -en "$GREEN Done $NONE\n"
 
 # mv commands tend to be less taxing than a cp -r + rm -rf
+
 mkdir $HOME/.config
 # the .config directory may have more files than you want. 
-# it contains files for both bspwm and i3. 
+# it contains files for both bspwm and i3. bspwm is the
+# only one still updated, but the i3 config is solid.
 
-printf "Moving config files... "
-mv  .config/*       $HOME
+echo -en "Moving config files... "
+mv  .config/*       $HOME/.config
 mkdir $HOME/scripts
 mv scripts/* $HOME/scripts
 
-printf "$GREEN Done $NONE\n"
+echo -en "$GREEN Done $NONE\n"
 
 make_statusbar_startup() {
-printf "Compiling statusbar and startup script (this will produce a lot of output)...\n"
+echo -en "Compiling statusbar and startup script (this will produce a lot of output)...\n"
 cd scripts/C
 make statusbar startup-script
 cd -
-printf "$GREEN Done $NONE\n"
+echo -en "$GREEN Done $NONE\n"
 }
 
 
-printf "Moving Bash-related files... "
+echo -en "Moving Bash-related files... "
 mv  .bash_profile   $HOME
 mv  .bashrc         $HOME
 
-printf "$GREEN Done $NONE\n"
+echo -en "$GREEN Done $NONE\n"
 
 
-printf "Moving X-related files... "
+echo -en "Moving X-related files... "
 mv  .Xresources     $HOME
 mv  .xinitrc        $HOME
 
-printf "$GREEN Done $NONE\n"
+echo -en "$GREEN Done $NONE\n"
 
 
 #arch
@@ -105,7 +107,7 @@ $root_helper emerge --newuse --ask alacritty $cpubrand-ucode net-misc/curl \
     x11-base/xorg-server x11-base/xorg-x11 youtube-dl zip
 }
 
-# both distros need to compile this from github:
+# both distros need to compile this from github (automatic script soon):
 # https://github.com/FreeTubeApp/FreeTube
 
 # gentoo uses an overlay for openrazer:
@@ -128,10 +130,10 @@ $root_helper emerge --ask games-util/steam-launcher # (or steam-meta if that fai
 }
 
 # uncomment this line only if you are using my dotfiles.
-##### make_statusbar_startup()
+##### make_statusbar_startup
 
-# either uncomment out "arch()" or "gentoo()" depending on the system this 
+# either uncomment out "arch" or "gentoo" depending on the system this 
 # is being installed on, of course.
 
-##### arch()
-##### gentoo(); openrazer(); steam();
+##### arch
+##### gentoo; openrazer; steam
