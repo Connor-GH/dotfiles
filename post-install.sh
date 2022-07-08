@@ -19,7 +19,7 @@ I3="i3-gaps i3blocks"
 
 cpubrand=amd # amd or intel
 
-DOTFILES=https://github.com/Connor-GH/Huayras-dotfiles
+DOTFILES=https://github.com/Connor-GH/dotfiles
 
 GREEN='\033[1;32m'
 NONE='\033[0m'
