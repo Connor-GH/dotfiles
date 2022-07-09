@@ -6,7 +6,9 @@ alias ll='ls -lAh --color=auto --group-directories-first'
 PS1="\u@\[\033[01;32m\]\h\[\033[0m\]:\[\033[01;34m\]\w\[\033[0m\]\$ "
 
 alias upgrade="sudo pacman -Syu"
-# alias upgrade="sudo emaint --auto sync && sudo emerge --ask --verbose --update --deep --newuse @world"
+# alias upgrade="sudo emaint --auto sync && sudo emerge --ask --verbose --update --deep --newuse @world && \
+echo -e '\033[1;36mRebuilding kernel modules (mostly needed for NVIDIA Drivers)...\033[0m' && \
+sudo emerge @module-rebuild && echo -e '\033[1;36mModule rebuilding done!\033[0m'"
 # alias clean="sudo eclean-kernel -n 2 && sudo emerge --ask --depclean --exclude=gentoo-kernel"
 alias vim="nvim"
 alias scrsel="main --select | xclip -selection clipboard -t image/png"
