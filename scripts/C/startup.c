@@ -1,74 +1,72 @@
-#include <curses.h>         // the bulk of the work
-#include <unistd.h>         // sleep, usleep, etc
-#include <sys/ioctl.h>      // getting terminal size
-int main() {
-    struct winsize w;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+#include <curses.h>
 
+
+int main() {
+
+    /*
+     * COLS is a macro for columns
+     * LINES is a macro for rows (lines)
+     *
+     * both are defined in curses.h
+     * alternatively, you can use ioctl
+     */
 
     (void) initscr();
-    erase();
-    for (int i=0;i<w.ws_col;i++) {
+    keypad(stdscr, TRUE);
+    (void) cbreak();
+
+    for (int i=0;i<COLS;i++) addstr("#");
+
+    for (int i=0;i<LINES-2;i++) {
+        move(i+1,0);
         addstr("#");
-        usleep(3000);
-        refresh();
+
+        move(i+1,COLS-1);
+        addstr("#");
     }
-    refresh();
-    for (int j=0;j<w.ws_row-1;j++) {
-        move(j+1,0);
-        addstr("#");
-        usleep(3000);
-        refresh();
-        move(j+1,w.ws_col-1);
-        addstr("#");
-        usleep(3000);
-        refresh();
+        move(LINES-1, 0);
+
+    for (int i=0;i<COLS;i++) addstr("#");
+
+    /* spells 'Linux' */
+    move(9, (COLS / 2)-19);
+	addstr("    //        //");
+	move(10, (COLS / 2)-19);
+	addstr("   //            //////    //    //  //    //");
+	move(11, (COLS / 2)-19);
+	addstr("  //        //  //    //  //    //    ////");
+	move(12, (COLS / 2)-19);
+	addstr(" //        //  //    //  //    //  //    //");
+	move(13, (COLS / 2)-19);
+	addstr("////////  //  //    //    //////  //    //");
+
+    /* color stuff */
+    if (has_colors()) {
+
+        start_color();
+        init_pair(1, COLOR_BLUE, COLOR_BLACK);
+	    attron(COLOR_PAIR(1));
+	    attron(A_BOLD);
     }
 
-move(1, (w.ws_col / 2)-19);
-addstr("      ////                        //");
-usleep(12000);
-refresh();
-move(2, (w.ws_col / 2)-19);
-addstr("   //    //  //  ////    //////  //////");
-usleep(12000);
-refresh();
-move(3, (w.ws_col / 2)-19);
-addstr("  ////////  ////      //        //    //");
-usleep(12000);
-refresh();
-move(4, (w.ws_col / 2)-19);
-addstr(" //    //  //        //        //    //");
-usleep(12000);
-refresh();
-move(5, (w.ws_col / 2)-19);
-addstr("//    //  //          //////  //    //");
-usleep(12000);
-refresh();
+    /* more printing */
+	move(14, (COLS / 2)-19);     
+	addstr("   Copyright (c) Linus Torvalds 1991 - 2022");
+	move(17, (COLS / 2)-19);     
+	addstr("   Press Enter to enter your X11 Server...");
 
-move(9, (w.ws_col / 2)-19);
-addstr("    //        //");
-usleep(12000);
-refresh();
-move(10, (w.ws_col / 2)-19);
-addstr("   //            //////    //    //  //    //");
-usleep(12000);
-refresh();
-move(11, (w.ws_col / 2)-19);
-addstr("  //        //  //    //  //    //    ////");
-usleep(12000);
-refresh();
-move(12, (w.ws_col / 2)-19);
-addstr(" //        //  //    //  //    //  //    //");
-usleep(12000);
-refresh();
-move(13, (w.ws_col / 2)-19);     
-addstr("////////  //  //    //    //////  //    //");
-usleep(12000);
-refresh();
+    if (has_colors()) {
 
-    //refresh();
-    sleep(1);
+	attroff(A_BOLD);
+	attroff(COLOR_PAIR(1));
+    }
+	refresh();
+
+    /* get a Return character from the user */
+	noecho();
+	while (getch() != '\n') getch();
+    echo();
+
     endwin();
 
     return 0;
