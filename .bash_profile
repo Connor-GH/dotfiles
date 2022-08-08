@@ -1,4 +1,4 @@
 #
 # ~/.bash_profile
-./scripts/C/startup
+~/scripts/C/startup
 [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"

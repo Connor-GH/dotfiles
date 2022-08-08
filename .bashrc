@@ -1,32 +1,40 @@
 # ~/.bashrc
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi #startx upon login
 [[ $- != *i* ]] && return # If not running interactively, don't do anything
-alias ls='ls -Ah --color=auto --group-directories-first'
-alias ll='ls -lAh --color=auto --group-directories-first'
+alias ls='ls -Ah --color=auto --group-directories-first -v'
+alias ll='ls -lAh --color=auto --group-directories-first -v'
 PS1="\u@\[\033[01;32m\]\h\[\033[0m\]:\[\033[01;34m\]\w\[\033[0m\]\$ "
 
 alias upgrade="sudo pacman -Syu"
-# alias upgrade="sudo emaint --auto sync && sudo emerge --ask --verbose --update --deep --newuse @world && \
-echo -e '\033[1;36mRebuilding kernel modules (mostly needed for NVIDIA Drivers)...\033[0m' && \
-sudo emerge @module-rebuild && echo -e '\033[1;36mModule rebuilding done!\033[0m'"
+alias clean="sudo pacman -Scc"
+# alias upgrade="sudo emaint --auto sync && sudo emerge --ask --verbose --update --deep --newuse @world"
 # alias clean="sudo eclean-kernel -n 2 && sudo emerge --ask --depclean --exclude=gentoo-kernel"
 alias vim="nvim"
-alias scrsel="main --select | xclip -selection clipboard -t image/png"
-# This looks harsh, but it just makes a file like "Arch_20220221_10-05.png". Month goes before day.
-# You can also make these work in dmenu by putting the command in a file in /usr/bin/scr and /usr/bin/scrsel. Make sure to make them executable.
-alias scr="maim ~/Pictures/$(cat /etc/os-release | sed -sn 1p | sed 's/"//g' | sed 's/NAME=//g' | awk '{print $1}')_$(date +"%Y%m%d_%I-%M").png"
 alias yt="youtube-dl --metadata-from-title '%(artist)s - %(title)s' -ic" #download vid
 alias yta="youtube-dl --output '~/Music/%(title)s.%(ext)s' --metadata-from-title '%(artist)s - %(title)s' -xic" #download audio
 alias music="mpv ~/Music --no-video --shuffle --term-osd-bar --term-osd-bar-chars=[##-]"
+
+# git commands
+alias g-help="cat ~/.bashrc | sed -sn 18,23p" # subject to change
+alias gadd="git add ."
+alias gcommit="git commit -m"
+alias gpush="git push"
+alias gstatus="git status"
+# gh upload <version> <file>
+# gh release [create/delete]
 
 # set XDG standard directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 # clean up your home! (~/)
 export HISTCONTROL="ignoreboth:erasedups"
 export LESSHISTFILE="-"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export HISTFILE="$XDG_STATE_HOME"/bash/history
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 
 # larger screens have a need for specific sizes for GUIs
 export GDK_SCALE="1"
