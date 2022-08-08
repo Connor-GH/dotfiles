@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# MARK ME AS EXECUTABLE #
+
 MONITOR_NAME="HDMI-0"
 xrandr -s 3840x2160
 pgrep -x sxhkd > /dev/null || sxhkd &
