@@ -1,0 +1,20 @@
+#!/bin/sh
+[DISK]
+command=~/scripts/C/newdisk
+interval=300
+color=#C9E3DB
+[CPU]
+command=~/scripts/C/newcpuavg
+interval=2
+color=#00B4EB
+[MEM]
+command=~/scripts/C/newmem
+interval=3
+color=#FEC925
+[SOUND]
+full_text= :  0% 
+command=~/scripts/bash/sound_info.sh
+interval=3
+[TIME_DATE]
+command=~/scripts/C/newtime
+interval=60

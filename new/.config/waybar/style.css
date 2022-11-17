@@ -1,0 +1,116 @@
+@import '../colors.css';
+
+
+/* Reset all styles */
+* {
+    color: @font;
+    border: none;
+    border-radius: 0;
+    padding: 0px 0px;
+    font-family:Terminus;
+    font-size: 28px;
+}
+
+.modules-center {
+    background: @bg-light;
+    border-radius: 4px;
+}
+
+#workspaces {
+   padding: 0;
+   margin: 0;
+}
+
+#mode {
+   color: @font;
+}
+
+#workspaces, #custom-clock, #custom-disk, #custom-cpu, #custom-memory, #custom-sound {
+    margin-right: 1px;
+    margin-left: 1px;
+    background-color: @bg-light;
+    border-radius: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    font-family:Terminus;
+    font-size: 28px;
+}
+
+@keyframes blink {
+    to {
+        color: @aur1;
+        background-color: @font;
+    }
+}
+
+
+#mode {
+    margin-bottom:0px;
+}
+
+
+/* ---------------------------------------------------------
+ *
+ *  										GAPS
+ *
+ * --------------------------------------------------------- */
+
+
+
+* {
+    color: @font;
+    border: none;
+    border-radius: 0;
+    padding: 0 0;
+    font-family:Terminus;
+    font-size: 28px;
+}
+
+window#waybar {
+    background-color: rgba(100, 100, 100, 0);
+    /* background: shade(alpha(@borders, 0.9), 2.25); */
+}
+
+.modules-left,.modules-right,.modules-center {
+    background: alpha(@bg, 0.8);
+    margin-top: 0px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 25px;
+    padding: 7px;
+}
+
+#workspaces {
+   padding: 0;
+   margin: 0;
+}
+
+
+#mode {
+    color: @font;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+@keyframes blink {
+    to {
+        color: @aur1;
+        background-color: @font;
+    }
+}
+
+
+#tray {
+   background-color: @accent;
+   color: #2e3440;
+   padding: 0 5px;
+	 border-radius: 3px 0px 0px 3px;
+}
+
+
+#window{
+    border-style: hidden;
+}
+

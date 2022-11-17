@@ -1,8 +1,6 @@
 #include <curses.h>
 
-
 int main() {
-
     /*
      * COLS is a macro for columns
      * LINES is a macro for rows (lines)
@@ -50,10 +48,10 @@ int main() {
     }
 
     /* more printing */
-	move(14, (COLS / 2)-19);     
+	move(14, (COLS / 2)-19);
 	addstr("   Copyright (c) Linus Torvalds 1991 - 2022");
-	move(17, (COLS / 2)-19);     
-	addstr("   Press Enter to enter your X11 Server...");
+	move(17, (COLS / 2)-19);
+	addstr("   Press Enter to enter your Wayland Server...");
 
     if (has_colors()) {
 

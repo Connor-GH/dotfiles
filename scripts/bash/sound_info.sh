@@ -22,4 +22,4 @@ elif [ $NUMBER -lt 67 ]
         ICON="$VOLUME_HIGH"
     fi
 fi
-echo "$ICON" "$SOUND_LEVEL""%"
+echo "$ICON" "$NUMBER""%"

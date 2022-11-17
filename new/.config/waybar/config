@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": ["custom/stub", "sway/workspaces"],
+    "modules-center": ["custom/stub", "custom/clock", "custom/stub"],
+    "modules-right": ["custom/disk", "custom/cpu", "custom/memory", "custom/sound", "custom/stub"],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+		      "3": "3",
+		      "4": "4",
+		      "5": "5",
+		      "6": "6",
+		      "7": "7",
+		      "8": "8",
+		      "9": "9",
+		      "10": "10",
+        }
+    },
+
+    "custom/clock": {
+        "exec": "bash -c ~/scripts/C/newtime",
+        "format": "{}",
+        "interval": 60
+    },
+    "custom/disk": {
+    "exec": "bash -c ~/scripts/C/newdisk",
+    "format": "{} ",
+    "interval": 600
+    },
+
+    "custom/cpu": {
+        "exec": "bash -c ~/scripts/C/newcpu",
+        "format": "{} ",
+        "interval": 2
+    },
+
+    "custom/memory": {
+        "exec": "bash -c ~/scripts/C/newmem",
+        "format": "{} ",
+        "interval": 2
+    },
+    "custom/sound": {
+    "exec": "bash -c ~/scripts/bash/sound_info.sh",
+    "format": "{} ",
+    "interval": 5
+    },
+
+    "custom/stub" : {
+        "format": " "
+    }
+
+}

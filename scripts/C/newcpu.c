@@ -22,7 +22,7 @@ int main() {
 	fgets(line1pt2, sizeof(line1pt2), cpu2);
 	sscanf(line1pt2, "%*99s %99s %*99s %99s %99s %*99s %*99s \
 	%*99s %*99s %*99s %*99s", i13v, i15v, i16v);
-	fclose(cpu2);	
+	fclose(cpu2);
 
 
 	int64_t x;
@@ -39,7 +39,7 @@ int main() {
 	sscanf(i16v, "%ld", &z3);
 
 	float TEMP;
-	FILE *cpu3 = fopen("/sys/class/hwmon/hwmon1/temp3_input", "r");
+	FILE *cpu3 = fopen("/sys/class/hwmon/hwmon1/temp1_input", "r");
 	if (cpu3 == NULL)
 		TEMP = 0.;
 	else {
