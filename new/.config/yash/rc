@@ -1,0 +1,28 @@
+##### Simple Yashrc #####
+# Firstly, load the common customization script.
+# If you don't like settings applied in this script, remove this line.
+. --autoload --no-alias ~/.config/yash/yash_init
+
+[[ $- != *i* ]] && return # If not running interactively, don't do anything
+
+[ -f "$HOME/.config/yash/aliasrc" ] && . $HOME/.config/yash/aliasrc
+YASH_PS1='\fgo.${LOGNAME}\fD.@\fmo.${HOSTNAME%%.*}\fD.'\
+':\fbo.${${${PWD:/~/\~}##*/}:-$PWD}\fD.\$ '
+
+bindkey --emacs "\^[[1;5C" forward-emacsword   # ctrl + right
+bindkey --emacs "\^[[1;5D" backward-emacsword  # ctrl + left
+
+export HISTRMDUP=10 # remove duplicates from history
+export HISTSIZE=100
+export HISTFILE=~/.local/share/yash/history
+# Fetchme binary is still in development.
+# It is perhaps not the most secure
+# in its current state and use of
+# fetchme-bash is recommended at this time
+# even though it doesn't get frequent updates.
+fetchme && :
+export TERM="xterm"
+# eval "$(zoxide init posix --hook prompt)"
+# z >/dev/null
+# if [[ "$?" = "0" ]]; then alias cd='z'; fi
+# vim: set et sw=2 sts=2 tw=78 ft=sh:

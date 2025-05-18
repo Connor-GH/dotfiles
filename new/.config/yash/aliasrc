@@ -1,0 +1,48 @@
+#!/bin/yash
+alias ls='ls -Ah --color=always'
+# alias ls='ls --group-directories-first -v' # GNU extensions
+alias ll='ls -l'
+alias rgrep="grep -R"
+alias sync="sudo emaint --auto sync"
+alias upgrade="sudo emerge --ask --quiet --verbose --update --deep --newuse @world"  # sudo emerge -aqvuDN world
+alias clean="sudo eclean -d distfiles && sudo eclean-kernel -n 2 && sudo emerge --ask --depclean --verbose=n --exclude=gentoo-kernel && sudo fstrim -v /"
+alias less="${PAGER}"
+alias --global top="top && clear" # mimic ncurses behavior of htop
+alias yt="youtube-dl --metadata-from-title '%(artist)s - %(title)s' -ic" # download vid
+alias yta="youtube-dl --output '$HOME/Music/%(title)s.%(ext)s' --metadata-from-title '%(artist)s - %(title)s' -xic" # download audio
+# Make mpv rule the world
+# it runs music, video, and now images
+alias play="mpv --vid=no --shuffle --pipewire-buffer=native --cache-on-disk=no --cache-secs=360 --gapless-audio=yes --cache=yes --demuxer-max-bytes=300M "
+alias playbt="play --script=/usr/lib64/mpv/mpris.so "
+alias music="mpv $HOME/Music/{endless,i_dont_remember} --no-video --shuffle --term-osd-bar --term-osd-bar-chars=[##-]"
+alias music2="mpv $HOME/Music/rock --no-video --shuffle --term-osd-bar --term-osd-bar-chars=[##-]"
+alias music3="mpv $HOME/Music/Sewerslvt/Albums/* --no-video --shuffle --term-osd-bar --term-osd-bar-chars=[##-]"
+alias imv="mpv --config-dir=$HOME/.config/mpv/mpv-image-viewer"
+alias time="$HOME/scripts/bash/time.sh"
+alias settime="sudo ntpdate -4 pool.ntp.org"
+# alias scrsel='grim -g "$(slurp -d)" - | wl-copy'
+alias scrsel='grim -g "$(slurp -d)" $HOME/Pictures/$(date +"%Y-%m-%d-%I%M%p").png'
+alias scr="grim $HOME/Pictures/$(date +"%Y-%m-%d-%I%M%p").png"
+alias steam='HOME="${XDG_DATA_HOME}/steamhome" steam'
+# gh help commands
+alias g-help="cat ~/.config/yash/aliasrc | grep 'GH-HELP' | sed 's/# GH-HELP//g'"
+alias gadd="git add ." # GH-HELP
+alias gcommit="git commit -m" # [commit-msg] # GH-HELP
+alias gpush="git push" # GH-HELP
+alias gstatus="git status" # GH-HELP
+# run these commands in order to do a release
+alias grelease="gh release -d" # GH-HELP
+alias gupload="gh release upload" # [tag] [files] # GH-HELP
+alias gundraft="gh release edit --draft=false" # [tag] # GH-HELP
+vim_() {
+	VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' vim "$@"
+}
+# uncomment if using vim
+#alias vim='vim_'
+alias vim='nvim'
+
+# we love colors!
+export GREP_OPTIONS='--color=always'
+alias dmesg="dmesg --color=always"
+alias emerge="emerge --color=y"
+alias llvm-objdump="llvm-objdump --disassembler-color=on"

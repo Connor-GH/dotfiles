@@ -1,4 +1,4 @@
-@import '../colors.css';
+@import 'colors.css';
 
 
 /* Reset all styles */
@@ -7,8 +7,8 @@
     border: none;
     border-radius: 0;
     padding: 0px 0px;
-    font-family:Terminus;
-    font-size: 28px;
+    font-family:"Terminus, FiraCode Nerd Font";
+    font-size: 1.2rem;/*28px;*/
 }
 
 .modules-center {
@@ -16,24 +16,24 @@
     border-radius: 4px;
 }
 
-#workspaces {
+/*#workspaces {
    padding: 0;
    margin: 0;
-}
+}*/
 
 #mode {
    color: @font;
 }
 
-#workspaces, #custom-clock, #custom-disk, #custom-cpu, #custom-memory, #custom-sound {
+#bluetooth, #hyprland-workspaces, #wireplumber, #network, #battery, #tray, #workspaces, #custom-clock, #custom-disk, #custom-cpu, #custom-memory, #custom-sound {
     margin-right: 1px;
     margin-left: 1px;
     background-color: @bg-light;
     border-radius: 4px;
     padding-left:10px;
     padding-right:10px;
-    font-family:Terminus;
-    font-size: 28px;
+    font-family:"Terminus", "FiraCode Nerd Font";
+    font-size: 18px;
 }
 
 @keyframes blink {
@@ -67,8 +67,8 @@
 }
 
 window#waybar {
-    background-color: rgba(100, 100, 100, 0);
-    /* background: shade(alpha(@borders, 0.9), 2.25); */
+    background-color: #0A0C23;/*rgba(100, 100, 100, 0);*/
+    background: alpha(#0A0C23, 0.6);
 }
 
 .modules-left,.modules-right,.modules-center {
@@ -80,10 +80,10 @@ window#waybar {
     padding: 7px;
 }
 
-#workspaces {
+/*#workspaces {
    padding: 0;
    margin: 0;
-}
+}*/
 
 
 #mode {
